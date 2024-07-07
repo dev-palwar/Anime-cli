@@ -7,6 +7,11 @@ const { SingleBar, Presets } = require("cli-progress");
 
 const downloadFolder = path.join(require("os").homedir(), "Desktop");
 
+// Check if the download folder exists; if not, create it
+if (!fs.existsSync(downloadFolder)) {
+  fs.mkdirSync(downloadFolder);
+}
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
